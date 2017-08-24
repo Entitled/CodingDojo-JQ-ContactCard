@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="UTF-8">
+    	<script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous">
+        </script>
+        <title>Contact Card Assignment</title>
+        <style>
+
+        	label {
+        		display: block;
+        	}
+        	#mainBlock {
+        		display: inline-block;
+        	}
+        	#output {
+        		display: inline-block;
+        	}
+        	#output div {
+                border: 1px solid #000000;
+                height: 100px;
+                width: 100px;
+        	}
+            .box {
+                height: 100px;
+                width: 100px;
+                margin: 5px;
+            }
+        </style>
+        <script type="text/javascript">
+        	$(document).ready( function() {
+        		$( "button" ).click( function() {
+	        		$( "#output" ).append(
+                        
+	        			"<div class='box'>" + 
+		        			"<h3>" + $( "#first_name" ).val() + " " + $( "#last_name" ).val() +
+                            "</h3>" + 
+		        			"<p>Click for description!</p>" + 
+	        			"</div>");
+	        		return false;
+        		});
+        	});
+
+        	$(document).on("click", "p", function() { $( ".box").hide( function() { $( this ).replaceWith("<div>" + $( "#info" ).val() +"</div>");
+                });
+        	});
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+        	<div id="mainBlock">
+        		<form>
+        			<label>
+        				First Name : <input id="first_name" type="text" name="first_name"/>
+        			</label>
+        			<label>
+        				Last Name : <input id="last_name" type="text" name="last_name"/>
+        			</label>
+        			<label>
+        				Description : <textarea id="info" name="description"></textarea>
+        			</label>
+        			<button>Add User</button>
+        		</form>
+        	</div>
+        	<div id="output"></div>
+        </div>
+    </body>
+</html>        
